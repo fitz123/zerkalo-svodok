@@ -1,0 +1,102 @@
+# Источники «Зеркала сводок». Считаем ГОЛОСА, не ленты.
+# voice: ru_official | ua_official | independent
+# method: rss | json
+# enabled: true только для проверенных эндпоинтов. Неподтверждённые — false с пометкой.
+# Каждый источник — это ЗАЯВЛЕНИЕ, фиксируемое ради подотчётности (не «истина»).
+
+sources:
+  # --- Голос 1: РФ официальный — ВОЕННАЯ СВОДКА (основной) ---
+  - id: ru_official_mod
+    name: "Минобороны России (сводка о ходе СВО)"
+    voice: ru_official
+    method: telegram
+    channel: mod_russia
+    basket: narrative
+    author: "Минобороны России"
+    enabled: true          # канонический военный голос РФ; читается БЕЗ аккаунта (t.me/s)
+    note: "Тактические заявления (заняли/уничтожили). Публичное веб-превью t.me/s, без логина/MTProto."
+
+  # РФ официальный — агентские пересказы (запасные, общая лента — шумные)
+  - id: ru_official_ria
+    name: "RIA Novosti (пересказ МО РФ)"
+    voice: ru_official
+    method: rss
+    basket: narrative
+    author: "RIA Novosti"
+    url: "https://ria.ru/export/rss2/defense_safety/index.xml"
+    enabled: true          # основной фид РФ-голоса
+    note: "Агентский пересказ, не вербатим министерства."
+
+  - id: ru_official_tass
+    name: "TASS (пересказ МО РФ)"
+    voice: ru_official
+    method: rss
+    basket: narrative
+    author: "TASS"
+    url: "https://tass.com/rss/v2.xml"
+    enabled: true          # запасной фид РФ-голоса (фильтровать военную секцию по содержимому)
+    note: "Общая лента; фильтровать военную тематику на стороне потребителя."
+
+  # --- Голос 2: UA официальный — ВОЕННАЯ СВОДКА (основной) ---
+  - id: ua_official_genstaff
+    name: "Генштаб ЗСУ (оперативна інформація)"
+    voice: ua_official
+    method: telegram
+    channel: GeneralStaffZSU
+    basket: narrative
+    author: "Генеральний штаб ЗСУ"
+    enabled: true          # канонический военный голос UA; читается БЕЗ аккаунта (t.me/s); CC-BY-4.0
+    note: "Оперативная сводка с фронта. Публичное веб-превью t.me/s, без логина/MTProto."
+
+  # UA официальный — агентский пересказ (запасной)
+  - id: ua_official_ukrinform
+    name: "Ukrinform (пересказ Генштаба ЗСУ)"
+    voice: ua_official
+    method: rss
+    basket: narrative
+    author: "Ukrinform"
+    url: "https://www.ukrinform.net/rss/rubric-ato"
+    enabled: true          # основной фид UA-голоса (проверен)
+    note: "Агентский пересказ, не вербатим Генштаба."
+
+  # --- Независимые голоса (разные корзины) ---
+  - id: ind_bellingcat_timemap
+    name: "Bellingcat Civilian Harm TimeMap"
+    voice: independent
+    method: json
+    basket: civilian
+    author: "Bellingcat"
+    url: "https://bellingcat-embeds.ams3.cdn.digitaloceanspaces.com/production/ukr/timemap/api.json"
+    enabled: true          # одиночный публичный JSON, без auth
+    note: "Проверить, обновляется ли после 12.2025. Атрибуция Bellingcat."
+
+  - id: ind_deepstatemap
+    name: "DeepStateMAP (контроль территории)"
+    voice: independent
+    method: json
+    basket: territory
+    author: "DeepState"
+    url: "https://deepstatemap.live/api/history/last"   # подтверждён вживую (200): {id, map:FeatureCollection, datetime}
+    enabled: true
+    note: "Лиц.: некоммерч., атрибуция, без проксирования API. CDN-кэш ~5 мин."
+
+  - id: ind_warspotting
+    name: "WarSpotting (потери техники РФ)"
+    voice: independent
+    method: json
+    basket: equipment
+    author: "WarSpotting"
+    url: "https://ukr.warspotting.net/api/losses/russia/recent/"   # {losses:[...]}; за Cloudflare
+    enabled: false         # ВЫКЛ для CI-надёжности: Cloudflare требует браузер (plain requests → 403). Вернуть, если добавим браузерный лег.
+    note: "Лиц.: некоммерч. с указанием авторства. В автопайплайне ненадёжен (Cloudflare/браузер)."
+
+  - id: ind_acled
+    name: "ACLED (события конфликта)"
+    voice: independent
+    method: json
+    basket: event
+    author: "ACLED"
+    auth: acled
+    url: "https://acleddata.com/api/acled/read?_format=json&country=Ukraine&limit=200"   # эндпоинт жив (403 без токена)
+    enabled: false         # РЕШЕНО не брать (Ninja, 2026-06-04): единственный источник, требующий аккаунт/пароль (OAuth password-grant) — лишняя кред-зависимость. Держим систему на бескредных источниках + один одноразовый ключ Wayback. У нас уже 3 независимых голоса.
+    note: "EULA + атрибуция; редистрибуция ограничена. Auth: OAuth Bearer (логин/пароль → 24ч токен). Не берём ради полной автономности."

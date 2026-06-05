@@ -1,0 +1,36 @@
+{"dropped_non_war": 78, "generated": "2026-06-04", "method": "AI clustering of official military summaries (МО РФ @mod_russia + Генштаб ЗСУ @GeneralStaffZSU) + agency relays (TASS, Ukrinform); day granularity", "events": [
+{"name": "Захват/бои за Комсомольское (Гуляйпольское), Запорожская обл.", "date": "2026-06-04", "multi": true, "sides": [
+{"voice": "ru_official", "source": "Минобороны России", "title": "Подразделения «Восток» освободили населённый пункт Комсомольское Запорожской области", "url": "https://t.me/mod_russia/64265", "snap": null},
+{"voice": "ru_official", "source": "Минобороны России", "title": "Взяли под контроль Комсомольское (Гуляйпольское) в Запорожской области", "url": "https://t.me/mod_russia/64266", "snap": null},
+{"voice": "ru_official", "source": "TASS (пересказ МО РФ)", "title": "Russian troops liberate Komsomolskoye community in Zaporozhye Region over past day", "url": "https://tass.com/politics/2141489", "snap": null},
+{"voice": "ua_official", "source": "Ukrinform (Генштаб ЗСУ)", "title": "Voloshyn: Russians fake claims of capturing Huliaipilske", "url": "https://www.ukrinform.net/rubric-ato/4130591-voloshyn-russians-fake-claims-of-capturing-huliaipilske.html", "snap": null}]},
+{"name": "Ночной перехват/удар БПЛА: РФ заявляет 272 сбитых, Украина — 264", "date": "2026-06-04", "multi": true, "sides": [
+{"voice": "ru_official", "source": "Минобороны России", "title": "За ночь 3–4 июня перехвачены 272 украинских БПЛА над регионами РФ", "url": "https://t.me/mod_russia/64259", "snap": null},
+{"voice": "ru_official", "source": "TASS (пересказ МО РФ)", "title": "Air defenses destroy 19 Ukrainian UAVs over Russian regions within 12-hour period", "url": "https://tass.com/politics/2141821", "snap": null},
+{"voice": "ua_official", "source": "Ukrinform (Генштаб ЗСУ)", "title": "Ukraine's air defense neutralizes 264 Russian drones in overnight attack on Ukraine", "url": "https://www.ukrinform.net/rubric-ato/4130315-ukraines-air-defense-neutralizes-264-russian-drones-in-overnight-attack-on-ukraine.html", "snap": null}]},
+{"name": "Удары ВСУ по сторожевому кораблю в Крыму, заводу в Рязани, терминалу в СПб", "date": "2026-06-04", "multi": true, "sides": [
+{"voice": "ua_official", "source": "Генштаб ЗСУ", "title": "Уражено сторожовий корабель, пороховий завод; уточнено результати ураження нафтотерміналу «Санкт-Петербург»", "url": "https://t.me/GeneralStaffZSU/39517", "snap": null},
+{"voice": "ua_official", "source": "Ukrinform (Генштаб ЗСУ)", "title": "Ukraine confirms strike on Russian patrol ship in Crimea, gunpowder plant in Ryazan region", "url": "https://www.ukrinform.net/rubric-ato/4130501-ukraine-confirms-strike-on-russian-patrol-ship-in-crimea-gunpowder-plant-in-ryazan-region.html", "snap": null}]},
+{"name": "Бои в Запорожской области (Восток): РФ заявляет зачистку, Украина — 900 атак по региону", "date": "2026-06-04", "multi": true, "sides": [
+{"voice": "ru_official", "source": "Минобороны России", "title": "Штурмовые подразделения «Восток» зачистили опорник ВСУ в Запорожской области", "url": "https://t.me/mod_russia/64275", "snap": null},
+{"voice": "ua_official", "source": "Ukrinform (Генштаб ЗСУ)", "title": "One killed, four injured as Russia launches over 900 attacks on Zaporizhzhia region over past day", "url": "https://www.ukrinform.net/rubric-ato/4130304-one-killed-four-injured-as-russia-launches-over-900-attacks-on-zaporizhzhia-region.html", "snap": null},
+{"voice": "ua_official", "source": "Ukrinform (Генштаб ЗСУ)", "title": "Russian drone hits trolleybus in Zaporizhzhia", "url": "https://www.ukrinform.net/rubric-ato/4130611-russian-drone-hits-trolleybus-in-zaporizhzhia.html", "snap": null}]},
+{"name": "Сводки о ходе фронта за сутки (Покровск, Гуляйполе)", "date": "2026-06-04", "multi": true, "sides": [
+{"voice": "ru_official", "source": "Минобороны России", "title": "Операторы БПЛА «Центр» уничтожили технику ВСУ на Добропольском направлении; «Восток» в Запорожской области", "url": "https://t.me/mod_russia/64274", "snap": null},
+{"voice": "ua_official", "source": "Генштаб ЗСУ", "title": "Оперативна інформація станом на 22:00 04.06.2026 (224 бойові зіткнення)", "url": "https://t.me/GeneralStaffZSU/39525", "snap": null},
+{"voice": "ua_official", "source": "Ukrinform (Генштаб ЗСУ)", "title": "War update: 95 combat clashes since morning, Pokrovsk and Huliaipole sectors most active", "url": "https://www.ukrinform.net/rubric-ato/4130577-war-update-95-combat-clashes.html", "snap": null}]},
+{"name": "Удар по электростанции «Никопольская», Днепропетровская обл.", "date": "2026-06-04", "multi": false, "sides": [
+{"voice": "ru_official", "source": "Минобороны России", "title": "Войска БпЛА ударили «Геранью» по электростанции «Никопольская», используемой ВСУ", "url": "https://t.me/mod_russia/64267", "snap": null}]},
+{"name": "Атаки по Днепропетровской области, терминал Nova Post в Днепре", "date": "2026-06-04", "multi": false, "sides": [
+{"voice": "ua_official", "source": "Ukrinform (Генштаб ЗСУ)", "title": "Russians attack Dnipropetrovsk region more than 50 times since morning, one killed, five injured", "url": "https://www.ukrinform.net/rubric-ato/4130597-russians-attack-dnipropetrovsk-region.html", "snap": null},
+{"voice": "ua_official", "source": "Ukrinform (Генштаб ЗСУ)", "title": "Russian forces attack Nova Post terminal in Dnipro again", "url": "https://www.ukrinform.net/rubric-ato/4130609-russian-forces-attack-nova-post-terminal-in-dnipro-again.html", "snap": null}]},
+{"name": "Обстрелы Харьковской области, удары по жилым домам и Чугуеву", "date": "2026-06-04", "multi": false, "sides": [
+{"voice": "ua_official", "source": "Ukrinform (Генштаб ЗСУ)", "title": "Russians shell 17 settlements in Kharkiv region, three killed, 21 injured over past day", "url": "https://www.ukrinform.net/rubric-ato/4130345-russians-shell-17-settlements-in-kharkiv-region.html", "snap": null},
+{"voice": "ua_official", "source": "Ukrinform (Генштаб ЗСУ)", "title": "Russians strike Chuhuiv: Two injured, educational institution damaged", "url": "https://www.ukrinform.net/rubric-ato/4130274-russians-strike-chuhuiv.html", "snap": null}]},
+{"name": "Атаки и жертвы среди мирного населения в Донецкой области", "date": "2026-06-04", "multi": false, "sides": [
+{"voice": "ua_official", "source": "Ukrinform (Генштаб ЗСУ)", "title": "Russian attacks kill five civilians, leave 11 injured in Donetsk region over past day", "url": "https://www.ukrinform.net/rubric-ato/4130329-russian-attacks-kill-five-civilians-donetsk.html", "snap": null}]},
+{"name": "Атаки на Херсонскую область", "date": "2026-06-04", "multi": false, "sides": [
+{"voice": "ua_official", "source": "Ukrinform (Генштаб ЗСУ)", "title": "Russian attacks in Kherson region leave six killed, 26 injured over past day", "url": "https://www.ukrinform.net/rubric-ato/4130327-russian-attacks-kherson-region.html", "snap": null}]},
+{"name": "Заявленные потери российских войск за сутки (1300 военных, 4 РСЗО)", "date": "2026-06-04", "multi": false, "sides": [
+{"voice": "ua_official", "source": "Ukrinform (Генштаб ЗСУ)", "title": "Russia loses 1,300 troops, four MLRS systems in war against Ukraine over past day", "url": "https://www.ukrinform.net/rubric-ato/4130311-russia-loses-1300-troops.html", "snap": null}]}
+]}

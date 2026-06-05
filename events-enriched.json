@@ -1,0 +1,253 @@
+{
+ "generated": "2026-06-04",
+ "method": "AI per-event workflow: independent OSINT (WarSpotting, ISW, news, satellite) gathered for each two-sided event",
+ "events": [
+  {
+   "name": "Захват/бои за Комсомольское (Гуляйпольское), Запорожская обл.",
+   "date": "2026-06-04",
+   "place": "Komsomolske / Huliaipilske, Zaporizhzhia oblast",
+   "ru": [
+    {
+     "source": "Минобороны России",
+     "title": "Подразделения «Восток» освободили Комсомольское Запорожской области",
+     "url": "https://t.me/mod_russia/64265"
+    },
+    {
+     "source": "TASS",
+     "title": "Russian troops liberate Komsomolskoye in Zaporozhye Region",
+     "url": "https://tass.com/politics/2141489"
+    }
+   ],
+   "ua": [
+    {
+     "source": "Ukrinform (Генштаб ЗСУ)",
+     "title": "Voloshyn: Russians fake claims of capturing Huliaipilske",
+     "url": "https://www.ukrinform.net/rubric-ato/4130591-voloshyn-russians-fake-claims-of-capturing-huliaipilske.html"
+    }
+   ],
+   "independents": [
+    {
+     "source": "WarSpotting (ukr.warspotting.net)",
+     "url": "https://ukr.warspotting.net/api/losses/russia/2026-06-04/",
+     "says": "One Russian loss logged for 2026-06-04 in the event area: a 130mm M-46 towed field gun destroyed, nearest_location 'Polohy raion, Zaporizhzhia oblast' (the raion that contains Komsomolske/Huliaipilske); confirms active combat in the sector but does not adjudicate who holds the village.",
+     "supports": "neither"
+    },
+    {
+     "source": "ISW / Critical Threats (via Kyiv Post mirror of the June 3 daily assessment)",
+     "url": "https://www.kyivpost.com/post/77471",
+     "says": "Latest published ISW daily assessment (June 3, posted June 4 08:00) states 'Neither Russian nor Ukrainian forces made confirmed advances throughout the theater in the past day' — ISW did not confirm any Russian capture in the Huliaipole sector; the June 4 assessment was not yet published.",
+     "supports": "ua"
+    },
+    {
+     "source": "Ukrinform (Voloshyn / Southern Defense Forces spokesman)",
+     "url": "https://www.ukrinform.net/rubric-ato/4130591-voloshyn-russians-fake-claims-of-capturing-huliaipilske.html",
+     "says": "Dated June 4, 2026: Voloshyn says Russia's claim of 'taking control' of Huliaipilske is false disinformation, that Ukrainian forces hold the settlement, and that brief Russian infiltrations were 'purely demonstrative' staged flag-raising videos. (Ukrainian official source — included as the corroborated official claim, not independent.)",
+     "supports": "ua"
+    },
+    {
+     "source": "DeepStateMAP (reporting surfaced via web search; map at deepstatemap.live)",
+     "url": "https://deepstatemap.live/en",
+     "says": "Around June 4, DeepState shows the place as contested/grey-zone, not fully Russian-held: Russian units advanced into the southwest part of Komsomolske and the southwest of Huliaipilske and seized nearby Charivne, but the settlements themselves are mapped as actively fought over rather than captured.",
+     "supports": "unclear"
+    }
+   ],
+   "note": "Komsomolske/Huliaipilske = village in Polohy Raion, Zaporizhzhia oblast (former Huliaipole raion), near Charivne/Novoselivka — confirmed via Wikipedia/Mapcarta, which anchors the WarSpotting 'Polohy raion' loss and the DeepState reports to this exact event area. WarSpotting required a browser User-Agent: WebFetch returned HTTP 403, but the patchright browser retrieved the JSON successfully. Critical Threats (ISW primary) was unreachable both via WebFetch (403) and browser (Cloudflare 'Just a moment' challenge); used the Kyiv Post ISW mirror instead. The June 4 ISW daily assessment was not yet published at fetch time (event date is today), so the June 3 ISW takeaways are the most recent independent ISW data — they report no confirmed advances theater-wide. No Bellingcat / AFP / Reuters / AP geolocation of this specific settlement was found. Net independent picture: combat is real in the area (WarSpotting), but no neutral source (ISW, DeepState) confirms an actual Russian capture as of 2026-06-04 — consistent with the Ukrainian denial and not with the Russian MoD 'liberated' claim. Ukrinform/Voloshyn is the Ukrainian official side, listed here for completeness, not as independent corroboration."
+  },
+  {
+   "name": "Ночной перехват/удар БПЛА: РФ заявляет 272 сбитых, Украина — 264",
+   "date": "2026-06-04",
+   "place": "Russian regions + Ukraine, overnight 3-4 June",
+   "ru": [
+    {
+     "source": "Минобороны России",
+     "title": "За ночь перехвачены 272 украинских БПЛА над регионами РФ",
+     "url": "https://t.me/mod_russia/64259"
+    }
+   ],
+   "ua": [
+    {
+     "source": "Ukrinform (Генштаб ЗСУ)",
+     "title": "Ukraine's air defense neutralizes 264 Russian drones overnight",
+     "url": "https://www.ukrinform.net/rubric-ato/4130315-ukraines-air-defense-neutralizes-264-russian-drones-in-overnight-attack-on-ukraine.html"
+    }
+   ],
+   "independents": [
+    {
+     "source": "WarSpotting (ukr.warspotting.net API)",
+     "url": "https://ukr.warspotting.net/api/losses/russia/2026-06-04/",
+     "says": "Only ONE visually-confirmed Russian loss dated 2026-06-04: a 130mm M-46 towed field gun destroyed in Polohy raion, Zaporizhzhia oblast — a frontline ground-combat loss, not part of the overnight air-defense/drone exchange. WarSpotting catalogs photo-confirmed equipment kills, not drone-intercept tallies, so it neither confirms nor refutes the 272/264 counts (fetched via browser User-Agent; WebFetch was blocked 403/451).",
+     "supports": "neither"
+    },
+    {
+     "source": "ISW (Institute for the Study of War), via Kyiv Post mirror, assessment June 3-4 2026",
+     "url": "https://www.kyivpost.com/post/77471",
+     "says": "ISW assesses Ukrainian forces conducted a series of long-range strikes on Russian military assets and oil infrastructure in St. Petersburg coinciding with day one of SPIEF; frames Russian officials as weaponizing alleged Ukrainian strikes to justify retaliation. Confirms the UA strike campaign occurred but does not independently adjudicate either side's drone-intercept count.",
+     "supports": "ua"
+    },
+    {
+     "source": "CNN",
+     "url": "https://www.cnn.com/2026/06/03/europe/ukraine-drone-attack-russia-st-petersburg-intl-hnk",
+     "says": "Reports overnight Ukrainian drone strike on St. Petersburg; Russian air defenses intercepted ~50 drones over Leningrad region per regional governor Drozdenko (figure attributed to a governor, not independently verified); confirms oil terminal hit and corvette Boikiy struck at Kronstadt. RU MoD's broader claim was 754 drones downed in 24h.",
+     "supports": "both"
+    },
+    {
+     "source": "Kyiv Independent",
+     "url": "https://kyivindependent.com/st-petersburg-oil-terminal-hit-in-major-ukrainian-attack-day-after-russias-mass-strike-on-kyiv/",
+     "says": "Confirms St. Petersburg Oil Terminal hit (12.5 Mt/yr facility, ~1,100 km from Ukraine), Kronstadt port ships/infrastructure struck, and Michurinsky Progress plant in Tambov oblast hit; governor Drozdenko cited 50 drones downed over Leningrad region. Substantiates the reality and reach of the UA strike.",
+     "supports": "ua"
+    },
+    {
+     "source": "Meduza (English)",
+     "url": "https://meduza.io/en/feature/2026/06/04/with-spief-underway-downtown-st-petersburg-s-outskirts-balance-summer-weather-and-a-burning-oil-terminal-as-residents-try-to-shrug-off-ukraine-s-latest-drone-strike",
+     "says": "Independent Russian-language outlet: governor Drozdenko said 59 drones downed over Leningrad region (note: differs from CNN's 50); oil terminal in Kronstadt hit and fire later extinguished; corvette Boiky damaged (per BBC Russia); drone debris hit a residential building. Local outlets Fontanka/Rotonda published aftermath footage. Corroborates the strike; the RU intercept figure is only a governor's number and varies between sources.",
+     "supports": "both"
+    },
+    {
+     "source": "RBC-Ukraine (citing Reuters, AP, OSINT analyst MizarVision)",
+     "url": "https://newsukraine.rbc.ua/news/new-satellite-images-reveal-extent-of-damage-1780498288.html",
+     "says": "Satellite imagery shows a large smoke plume over St. Petersburg port after the strike on the oil terminal; Reuters and AP confirmed the attack and additional strikes on Kronstadt military-linked infrastructure; OSINT analyst MizarVision shared the imagery. Independent geolocated confirmation that the UA strike physically occurred and caused damage.",
+     "supports": "ua"
+    },
+    {
+     "source": "Ukrainska Pravda (English) — Russian-drone direction of the same overnight",
+     "url": "https://www.pravda.com.ua/eng/news/2026/06/04/8037697/",
+     "says": "For the reverse direction: Russia launched an Iskander-M and 293 strike UAVs (Shahed/Gerbera/Italmas/decoys) from Kursk, Bryansk, Millerovo, Primorsko-Akhtarsk and occupied Crimea overnight 3-4 June; UA air defense downed/suppressed 264, with 24 drones plus the missile impacting 11 locations; 23 killed, 151 injured. Independently reproduces the UA 264-of-293 figure but is itself Ukrainian press relaying the Air Force, not a neutral verifier of the count.",
+     "supports": "ua"
+    },
+    {
+     "source": "Skhemy / Radio Liberty (Planet Labs satellite imagery), reported via Ukrainska Pravda",
+     "url": "https://www.pravda.com.ua/eng/news/2026/06/03/8037606/index.amp",
+     "says": "Skhemy (RFE/RL investigative project) obtained a Planet Labs satellite image dated 3 June showing a large-scale fire at the St. Petersburg oil terminal site (per search-result summary; direct WebFetch of the page was blocked 403). Third-party satellite confirmation of the strike's physical effect.",
+     "supports": "ua"
+    }
+   ],
+   "note": "Это двунаправленный ночной обмен 3-4 июня, а не одно событие: цифра РФ (272 сбитых БПЛА над регионами РФ — часть более широкой заявки МО РФ о 754 за сутки) и цифра Украины (264 из 293 российских БПЛА над Украиной) относятся к РАЗНЫМ направлениям удара одной ночи и напрямую не сопоставимы. Независимое подтверждение есть для СУБСТАНЦИИ украинского удара по Санкт-Петербургу: спутниковые снимки Planet Labs (Skhemy/Radio Liberty), OSINT-аналитик MizarVision, подтверждения Reuters/AP, освещение CNN/Kyiv Independent/Meduza/ISW — попадание по нефтетерминалу, корвету «Бойкий» в Кронштадте, заводу в Тамбовской области реально и геолоцировано. НО сами цифры перехвата ни одна из сторон независимо не подтверждена: российская цифра по Ленинградской области исходит только от губернатора Дрозденко и расходится между источниками (50 у CNN/Kyiv Independent vs 59 у Meduza); украинская цифра 264/293 воспроизводится только украинской прессой со ссылкой на ВС Украины. WarSpotting на 2026-06-04 даёт лишь одну подтверждённую потерю РФ — буксируемое орудие в Запорожской области (наземный бой, не связан с воздушным обменом), поэтому счёт сбитых БПЛА он не верифицирует. Вывод: факт ударов независимо подтверждён, конкретные числа сбитых — нет."
+  },
+  {
+   "name": "Удары ВСУ по кораблю в Крыму, заводу в Рязани, терминалу в СПб",
+   "date": "2026-06-04",
+   "place": "Crimea (patrol ship), Ryazan (gunpowder plant), St Petersburg (oil terminal)",
+   "ru": [],
+   "ua": [
+    {
+     "source": "Ukrinform (Генштаб ЗСУ)",
+     "title": "Ukraine confirms strike on Russian patrol ship in Crimea, gunpowder plant in Ryazan",
+     "url": "https://www.ukrinform.net/rubric-ato/4130501-ukraine-confirms-strike-on-russian-patrol-ship-in-crimea-gunpowder-plant-in-ryazan-region.html"
+    }
+   ],
+   "independents": [
+    {
+     "source": "ABC News (US wire, citing Russian officials)",
+     "url": "https://abcnews.com/International/ukrainian-drones-hit-st-petersburg-key-putin-economic/story?id=133544045",
+     "says": "Russian side confirms the St Petersburg strike: governor Beglov reported attacks on Kronstadt/Kirovsky/Krasnoselsky districts with injuries; Russia's air-transport agency imposed Pulkovo restrictions; MoD claimed 354 drones downed; Petersburg Oil Terminal named as a target.",
+     "supports": "ua"
+    },
+    {
+     "source": "The Spokesman-Review (AP wire)",
+     "url": "https://www.spokesman.com/stories/2026/jun/03/drones-hit-st-petersburg-port-as-putin-hosts-major/",
+     "says": "Independently corroborates St Petersburg port/oil-terminal strike: Russian governor Beglov acknowledged several damaged buildings, injuries, drone debris hitting four houses, clean-up underway; Russia reported 354 drones intercepted and air-raid alerts.",
+     "supports": "ua"
+    },
+    {
+     "source": "The Maritime Executive",
+     "url": "https://maritime-executive.com/article/ukrainian-drones-hit-oil-terminal-in-st-petersburg-s-harbor",
+     "says": "Reports drones hit the St Petersburg Oil Terminal ~5 miles from city center; cites Russian social-media video of flame/smoke at the tank farm and TASS noting Kronstadt/Krasnoselsky districts hit, but provides no satellite/geolocation analysis itself.",
+     "supports": "ua"
+    },
+    {
+     "source": "NPR (search-surfaced summary; full page timed out)",
+     "url": "https://www.npr.org/2026/06/03/nx-s1-5844793/ukrainian-drones-hit-st-petersburg",
+     "says": "Per governor Beglov, three St Petersburg districts (Kronstadt, Kirovsky, Krasnoselsky) were attacked by Ukrainian drones with several injured; Pulkovo airspace temporarily restricted, ~two dozen flights delayed — Russian-side confirmation of the St Petersburg strike.",
+     "supports": "ua"
+    },
+    {
+     "source": "WarSpotting (russia losses API, 2026-06-04, browser User-Agent)",
+     "url": "https://ukr.warspotting.net/api/losses/russia/2026-06-04/",
+     "says": "Only one logged Russian equipment loss for this date — a 130mm M-46 towed field gun destroyed in Polohy raion, Zaporizhzhia oblast — none in Crimea, Ryazan, or St Petersburg; no ship/plant/terminal losses recorded for these strikes.",
+     "supports": "neither"
+    }
+   ],
+   "note": "St Petersburg portion is independently corroborated by the adversary (Russian) side: governor Beglov (Telegram), Russia's federal air-transport agency (Pulkovo restrictions), and the Russian MoD (354 drones downed), reported via US/AP wire — this confirms a Ukrainian drone attack hit St Petersburg districts including the Petersburg Oil Terminal area. The Crimea patrol ship (Svetlyak/Project 10410 near Iurkine) and the Ryazan Elastik gunpowder plant strikes remain sourced ONLY to Ukrainian military channels (General Staff, cdr Brovdi/'Magyar', with Ukrainian-released video) across all coverage checked — no Russian official statement, third-party geolocation, or satellite verification found for those two. WarSpotting logs no losses in any of the three target areas for 2026-06-04 (its single entry is unrelated artillery in Zaporizhzhia), so it neither corroborates nor contradicts these strikes. No Russian official claims were provided in the task. ISW's daily assessment could not be verified via a working fetch (Kyiv Post repost returned HTTP 403; no ISW-specific assessment of these three strikes surfaced in search), so it is not reported. No Bellingcat/AFP/Reuters geolocation of any of the three sites was found. DeepStateMAP N/A — none of these are territorial-capture disputes."
+  },
+  {
+   "name": "Бои в Запорожской области (Восток): РФ — зачистка, Украина — 900 атак по региону",
+   "date": "2026-06-04",
+   "place": "Zaporizhzhia oblast / city",
+   "ru": [
+    {
+     "source": "Минобороны России",
+     "title": "Штурмовые «Восток» зачистили опорник ВСУ в Запорожской области",
+     "url": "https://t.me/mod_russia/64275"
+    }
+   ],
+   "ua": [
+    {
+     "source": "Ukrinform (Генштаб ЗСУ)",
+     "title": "Russia launches 900+ attacks on Zaporizhzhia region; drone hits trolleybus",
+     "url": "https://www.ukrinform.net/rubric-ato/4130611-russian-drone-hits-trolleybus-in-zaporizhzhia.html"
+    }
+   ],
+   "independents": [
+    {
+     "source": "ISW / Critical Threats (Russian Offensive Campaign Assessment, June 1–2 2026, via web search)",
+     "url": "https://www.criticalthreats.org/analysis/russian-offensive-campaign-assessment-june-2-2026",
+     "says": "В Запорожском направлении (Гуляйполе, западнее Орехова у Щербаков) РФ продолжала наступать, но подтверждённых продвижений 1–2 июня НЕТ; ISW отдельно отмечает, что часть Z-блогеров СИЛЬНО преувеличивает успехи РФ под Гуляйполе.",
+     "supports": "unclear"
+    },
+    {
+     "source": "ISW / Critical Threats (ROCA June 1 2026, via web search)",
+     "url": "https://www.criticalthreats.org/analysis/russian-offensive-campaign-assessment-june-1-2026",
+     "says": "Цель РФ в Запорожье — удержать линию фронта и подойти на дистанцию ствольной артиллерии к Запорожью; подтверждённого продвижения 1 июня ISW не зафиксировал.",
+     "supports": "unclear"
+    },
+    {
+     "source": "Inform.zp.ua (запорожское местное СМИ)",
+     "url": "https://www.inform.zp.ua/ru/2026/06/04/373021_v-zaporozhe-rossijskij-dron-povredil-obshhestvennyj-transport-chto-izvestno",
+     "says": "4 июня российский дрон повредил троллейбус в Запорожье; пассажиры и водитель успели выйти до попадания, жертв нет; отдельным ударом полностью разрушен частный дом, ранена 53-летняя женщина.",
+     "supports": "ua"
+    },
+    {
+     "source": "MIG.com.ua / Akzent.zp.ua / Spravzhne.media (запорожские местные СМИ, web search)",
+     "url": "https://mig.com.ua/ru/v-zaporozhe-fpv-dron-popal-pered-trollejbusom-dvyzhenye-uzhe-vosstanovyly/",
+     "says": "FPV-дрон попал перед троллейбусом на пересечении пр. Соборного и ул. Украинской в Запорожье 4 июня; движение восстановлено — независимая привязка удара к месту и дате.",
+     "supports": "ua"
+    }
+   ],
+   "note": "Частично подтверждено. ПОДДЕРЖКА УКРАИНСКОЙ СТОРОНЫ (удар по троллейбусу): независимо подтверждён несколькими запорожскими местными СМИ (inform.zp.ua, mig.com.ua, akzent.zp.ua, spravzhne.media) — FPV-дрон у троллейбуса на пр. Соборном 4 июня, без жертв; это корроборирует тезис Укринформа/Генштаба об ударе по городу, независимо от самого Генштаба. КЛЕЙМ РФ («Восток зачистил опорник ВСУ»): прямой независимой геолокации именно этого опорника не найдено; однако оценки ISW (1–3 июня) по Запорожскому направлению фиксируют ОТСУТСТВИЕ подтверждённых продвижений РФ под Гуляйполе/Ореховым и прямо отмечают преувеличение успехов российскими блогерами — это контекст против завышенной трактовки «зачистки», но конкретно данный опорник ISW не разбирает (потому supports=unclear, а не ru). ОГРАНИЧЕНИЯ ДОСТУПА: WarSpotting (ukr.warspotting.net/api) недоступен — отдаёт 403/Cloudflare-challenge и через WebFetch, и через браузер; данные по потерям техники за 2026-06-04 получить не удалось. Critical Threats (первоисточник ISW) за 3–4 июня закрыт Cloudflare-проверкой бота; использованы только проверенные сниппеты веб-поиска с реальными URL за 1–2 июня. DeepStateMAP за 4 июня — спор о захвате конкретного опорника не разрешён (интерактивная карта, не парсится поиском). Источники ISW даны с supports=unclear: они не подтверждают и не опровергают именно этот опорник, но релевантны как независимая оценка направления."
+  },
+  {
+   "name": "Сводки о ходе фронта (Покровск, Гуляйполе)",
+   "date": "2026-06-04",
+   "place": "Pokrovsk and Huliaipole sectors",
+   "ru": [
+    {
+     "source": "Минобороны России",
+     "title": "«Центр» уничтожил технику ВСУ на Добропольском направлении",
+     "url": "https://t.me/mod_russia/64274"
+    }
+   ],
+   "ua": [
+    {
+     "source": "Генштаб ЗСУ",
+     "title": "Оперативна інформація 22:00 04.06.2026 (224 бойові зіткнення)",
+     "url": "https://t.me/GeneralStaffZSU/39525"
+    }
+   ],
+   "independents": [
+    {
+     "source": "WarSpotting (ukr.warspotting.net)",
+     "url": "https://ukr.warspotting.net/api/losses/russia/2026-06-04/",
+     "says": "Exactly 1 documented Russian loss for 2026-06-04 across the whole front: a 130mm 52-P-482 M-46 towed field gun destroyed in Polohy raion, Zaporizhzhia oblast (the Huliaipole sector); no entries near Pokrovsk/Dobropillia.",
+     "supports": "ua"
+    },
+    {
+     "source": "ISW (Institute for the Study of War), assessment dated June 3, 2026 — via Kyiv Post mirror (published June 4, 2026 08:00)",
+     "url": "https://www.kyivpost.com/post/77471",
+     "says": "Key takeaway: «Neither Russian nor Ukrainian forces made confirmed advances throughout the theater in the past day» — no independently confirmed ground gains anywhere, including the Pokrovsk/Dobropillia/Huliaipole sectors, for the window ending the morning of June 4.",
+     "supports": "neither"
+    }
+   ],
+   "note": "WarSpotting was 403 to the WebFetch tool but worked via curl with a browser User-Agent. criticalthreats.org (ISW's own site), kyivpost, france24, russiamatters all returned 403 to WebFetch/curl; I retrieved the ISW June 3 assessment via the patchright browser (kyivpost mirror) — that mirror only carries ISW's Key Takeaways summary, not the full sector-by-sector text, so I could verify the theater-wide \\\"no confirmed advances\\\" line but not a sentence-level adjudication of the specific Dobropillia/Pokrovsk claim. Note a name collision: the RU MoD claim references the Dobropillia/Добропольское direction near Pokrovsk (Donetsk); a separate settlement \\\"Dobropillia\\\" also exists north of Huliaipole (Zaporizhzhia) — do not conflate. The closest ISW report by date is June 3 (covering the 24h to the morning of June 4); a June-4-dated ISW assessment (publishable ~June 5) was not yet indexed at search time. No Bellingcat/AFP/Reuters/AP item geolocating or confirming this specific strike/incident at this place+date was found (June 4 wire coverage centered on Crimea and St. Petersburg strikes, not the Pokrovsk/Huliaipole ground sector). No DeepStateMAP capture-status confirmation specific to this date was retrieved (DeepState results surfaced were from earlier 2026). Bottom line: WarSpotting weakly corroborates a UA-claimed RU equipment loss in the Huliaipole/Polohy area on the date; ISW independently shows no confirmed territorial advance by either side, undercutting any \\\"breakthrough/advance\\\" framing without confirming or denying the narrow \\\"destroyed VSU equipment\\\" claim itself."
+  }
+ ]
+}

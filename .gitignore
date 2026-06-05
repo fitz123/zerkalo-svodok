@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+# Never commit a private key or API credentials
+privkey*
+*.secret
+SIGNING_KEY*
+keys/ia.env
+*.env

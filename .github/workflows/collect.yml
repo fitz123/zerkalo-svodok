@@ -1,0 +1,52 @@
+name: collect
+
+# Runs the collector + signer on a schedule and commits the result back to the
+# repo. One platform does collect -> sign -> commit; no server needed.
+# Note: scheduled runs are best-effort (can be delayed a few minutes).
+
+on:
+  schedule:
+    - cron: "17 */6 * * *"   # every 6 hours (offset off the hour)
+  workflow_dispatch: {}       # manual trigger
+
+permissions:
+  contents: write             # allow the job to push commits
+
+concurrency:
+  group: collect
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - name: Collect
+        env:
+          ACLED_KEY: ${{ secrets.ACLED_KEY }}
+          ACLED_EMAIL: ${{ secrets.ACLED_EMAIL }}
+        run: python3 collect.py
+      - name: Archive (Wayback, idempotent + paced)
+        env:
+          IA_ACCESS_KEY: ${{ secrets.IA_ACCESS_KEY }}
+          IA_SECRET_KEY: ${{ secrets.IA_SECRET_KEY }}
+        run: python3 archive.py
+      - name: Sign head
+        env:
+          SIGNING_KEY_HEX: ${{ secrets.SIGNING_KEY_HEX }}
+        run: python3 sign.py sign
+      - name: Verify before commit
+        run: python3 verify.py
+      - name: Render human-readable index.html
+        run: python3 render.py
+      - name: Commit
+        run: |
+          git config user.name "zerkalo-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet || git commit -m "collect: $(date -u +%FT%TZ)"
+          git push
