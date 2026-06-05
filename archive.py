@@ -12,20 +12,34 @@ import os
 import sys
 import time
 
+import yaml
+
 from lib import ledger, wayback
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 LEDGER_PATH = os.path.join(ROOT, "ledger", "log.jsonl")
+SOURCES_PATH = os.path.join(ROOT, "sources.yaml")
 MAX = int(os.environ.get("ARCHIVE_MAX", "50"))       # snapshots per run
-PACE = float(os.environ.get("ARCHIVE_PACE", "4"))    # seconds between saves (~15/min)
+PACE = float(os.environ.get("ARCHIVE_PACE", "5"))    # seconds between saves (~12/min, safe vs SPN2 ~15/min)
+
+
+def _no_archive_sources() -> set:
+    """source_ids marked `archive: false` in sources.yaml — kept in the ledger but
+    not Wayback-snapshotted (e.g. bulky general-news relays that would starve the
+    Wayback rate limit and never let the high-value war content catch up)."""
+    with open(SOURCES_PATH, encoding="utf-8") as f:
+        srcs = yaml.safe_load(f)["sources"]
+    return {s["id"] for s in srcs if s.get("archive") is False}
 
 
 def main() -> int:
     if not wayback.configured():
         print("archive: IA keys not set (env or keys/ia.env) — skipping")
         return 0
+    skip = _no_archive_sources()
     entries = ledger.load(LEDGER_PATH)
-    todo = [e for e in entries if not e.get("archive_url") and e.get("record", {}).get("url")]
+    todo = [e for e in entries if not e.get("archive_url") and e.get("record", {}).get("url")
+            and e["record"].get("source_id") not in skip]
     print(f"archive: {len(todo)} entries missing snapshots; doing up to {MAX}")
     done = 0
     for e in todo[:MAX]:
