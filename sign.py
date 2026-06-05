@@ -101,6 +101,11 @@ def sign() -> None:
 
     # Optional: anchor head.json in Bitcoin via OpenTimestamps, if the CLI is present.
     if shutil.which("ots"):
+        ots_path = HEAD_JSON + ".ots"
+        # The head changed every run; a stale .ots is invalid AND `ots stamp` refuses
+        # to overwrite it ("File exists"). Drop it so we always stamp the current head.
+        if os.path.exists(ots_path):
+            os.remove(ots_path)
         try:
             subprocess.run(["ots", "stamp", HEAD_JSON], check=True)
             print("opentimestamps: head.json.ots created")
