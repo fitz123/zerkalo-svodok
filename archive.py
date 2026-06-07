@@ -23,8 +23,12 @@ from lib import ledger, wayback
 ROOT = os.path.dirname(os.path.abspath(__file__))
 LEDGER_PATH = os.path.join(ROOT, "ledger", "log.jsonl")
 SOURCES_PATH = os.path.join(ROOT, "sources.yaml")
-MAX = int(os.environ.get("ARCHIVE_MAX", "50"))       # snapshots per run
-PACE = float(os.environ.get("ARCHIVE_PACE", "5"))    # seconds between saves (~12/min, safe vs SPN2 ~15/min)
+REQUESTED_MAX = int(os.environ.get("ARCHIVE_MAX", "50"))
+HARD_MAX = int(os.environ.get("ARCHIVE_HARD_MAX", "40"))
+MAX = min(REQUESTED_MAX, HARD_MAX)                    # snapshots per run; protect collect from long Wayback stalls
+PACE = float(os.environ.get("ARCHIVE_PACE", "15"))    # seconds between saves; SPN2 also has active-session limits
+STOP_STATUS_EXT = {"error:user-session-limit"}
+MAX_CONSECUTIVE_TRANSPORT_FAILURES = 3
 
 
 def _archivable_sources() -> set[str]:
@@ -58,6 +62,7 @@ def main() -> int:
 
     done = 0
     failed = 0
+    consecutive_transport_failures = 0
     for e in todo[:MAX]:
         r = e["record"]
         result = wayback.save(r["url"])
@@ -65,10 +70,21 @@ def main() -> int:
         if result.ok and result.archive_url:
             e["archive_url"] = result.archive_url
             done += 1
+            consecutive_transport_failures = 0
             print(f"  {label}: archived -> {result.archive_url[:100]} ({result.summary()})")
         else:
             failed += 1
             print(f"  {label}: not archived ({result.summary()})")
+            if result.status_ext in STOP_STATUS_EXT:
+                print("archive: stopping early — Wayback active-session limit; retry next scheduled run")
+                break
+            if result.reason == "request-exception":
+                consecutive_transport_failures += 1
+                if consecutive_transport_failures >= MAX_CONSECUTIVE_TRANSPORT_FAILURES:
+                    print("archive: stopping early — repeated transport failures from Wayback")
+                    break
+            else:
+                consecutive_transport_failures = 0
         time.sleep(PACE)
 
     if done:
