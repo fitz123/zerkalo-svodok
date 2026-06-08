@@ -1,11 +1,14 @@
-# Источники «Зеркала сводок». Считаем ГОЛОСА, не ленты.
+# Источники «Зеркала сводок». Узкий скоуп: собираем только то, что
+# одновременно имеет смысл фиксировать в ledger И морозить в Wayback.
+#
 # voice: ru_official | ua_official | independent
-# method: rss | json
-# enabled: true только для проверенных эндпоинтов. Неподтверждённые — false с пометкой.
+# method: telegram | json
+# enabled: true только для проверенных бескредовых публичных эндпоинтов.
+# archive: true для всех текущих источников — нет второго сорта «собираем, но не морозим».
 # Каждый источник — это ЗАЯВЛЕНИЕ, фиксируемое ради подотчётности (не «истина»).
 
 sources:
-  # --- Голос 1: РФ официальный — ВОЕННАЯ СВОДКА (основной) ---
+  # --- Голос 1: РФ официальный — канонический военный голос ---
   - id: ru_official_mod
     name: "Минобороны России (сводка о ходе СВО)"
     voice: ru_official
@@ -13,34 +16,11 @@ sources:
     channel: mod_russia
     basket: narrative
     author: "Минобороны России"
-    enabled: true          # канонический военный голос РФ; читается БЕЗ аккаунта (t.me/s)
-    archive: true          # Wayback tier A: морозим только канонические/независимые источники
+    enabled: true          # читается БЕЗ аккаунта (t.me/s)
+    archive: true          # Wayback tier A
     note: "Тактические заявления (заняли/уничтожили). Публичное веб-превью t.me/s, без логина/MTProto."
 
-  # РФ официальный — агентские пересказы (запасные, общая лента — шумные)
-  - id: ru_official_ria
-    name: "RIA Novosti (пересказ МО РФ)"
-    voice: ru_official
-    method: rss
-    basket: narrative
-    author: "RIA Novosti"
-    url: "https://ria.ru/export/rss2/defense_safety/index.xml"
-    enabled: true          # основной фид РФ-голоса
-    archive: false         # collect only: пересказ, не Wayback tier A
-    note: "Агентский пересказ, не вербатим министерства."
-
-  - id: ru_official_tass
-    name: "TASS (пересказ МО РФ)"
-    voice: ru_official
-    method: rss
-    basket: narrative
-    author: "TASS"
-    url: "https://tass.com/rss/v2.xml"
-    enabled: true          # запасной фид РФ-голоса (общая лента — 75% шума)
-    archive: false         # НЕ морозить в Wayback: объёмная общая лента; военные пункты — пересказ МО (его морозим через Telegram). Запись остаётся в архиве хешем+ссылкой.
-    note: "Общая лента; военную тематику фильтруем на слое отображения; Wayback не тратим."
-
-  # --- Голос 2: UA официальный — ВОЕННАЯ СВОДКА (основной) ---
+  # --- Голос 2: UA официальный — канонический военный голос ---
   - id: ua_official_genstaff
     name: "Генштаб ЗСУ (оперативна інформація)"
     voice: ua_official
@@ -48,23 +28,11 @@ sources:
     channel: GeneralStaffZSU
     basket: narrative
     author: "Генеральний штаб ЗСУ"
-    enabled: true          # канонический военный голос UA; читается БЕЗ аккаунта (t.me/s); CC-BY-4.0
-    archive: true          # Wayback tier A: морозим только канонические/независимые источники
+    enabled: true          # читается БЕЗ аккаунта (t.me/s); CC-BY-4.0
+    archive: true          # Wayback tier A
     note: "Оперативная сводка с фронта. Публичное веб-превью t.me/s, без логина/MTProto."
 
-  # UA официальный — агентский пересказ (запасной)
-  - id: ua_official_ukrinform
-    name: "Ukrinform (пересказ Генштаба ЗСУ)"
-    voice: ua_official
-    method: rss
-    basket: narrative
-    author: "Ukrinform"
-    url: "https://www.ukrinform.net/rss/rubric-ato"
-    enabled: true          # основной фид UA-голоса (проверен)
-    archive: false         # collect only: пересказ, не Wayback tier A
-    note: "Агентский пересказ, не вербатим Генштаба."
-
-  # --- Независимые голоса (разные корзины) ---
+  # --- Независимый голос: гражданский вред ---
   - id: ind_bellingcat_timemap
     name: "Bellingcat Civilian Harm TimeMap"
     voice: independent
@@ -73,9 +41,10 @@ sources:
     author: "Bellingcat"
     url: "https://bellingcat-embeds.ams3.cdn.digitaloceanspaces.com/production/ukr/timemap/api.json"
     enabled: true          # одиночный публичный JSON, без auth
-    archive: true          # Wayback tier A: независимый источник
-    note: "Проверить, обновляется ли после 12.2025. Атрибуция Bellingcat."
+    archive: true          # Wayback tier A
+    note: "Атрибуция Bellingcat. Следить, обновляется ли источник дальше."
 
+  # --- Независимый голос: контроль территории ---
   - id: ind_deepstatemap
     name: "DeepStateMAP (контроль территории)"
     voice: independent
@@ -84,28 +53,5 @@ sources:
     author: "DeepState"
     url: "https://deepstatemap.live/api/history/last"   # подтверждён вживую (200): {id, map:FeatureCollection, datetime}
     enabled: true
-    archive: true          # Wayback tier A: независимый источник
+    archive: true          # Wayback tier A
     note: "Лиц.: некоммерч., атрибуция, без проксирования API. CDN-кэш ~5 мин."
-
-  - id: ind_warspotting
-    name: "WarSpotting (потери техники РФ)"
-    voice: independent
-    method: json
-    basket: equipment
-    author: "WarSpotting"
-    url: "https://ukr.warspotting.net/api/losses/russia/recent/"   # {losses:[...]}; за Cloudflare
-    enabled: false         # ВЫКЛ для CI-надёжности: Cloudflare требует браузер (plain requests → 403). Вернуть, если добавим браузерный лег.
-    archive: false         # disabled source; do not Wayback unless re-enabled and promoted
-    note: "Лиц.: некоммерч. с указанием авторства. В автопайплайне ненадёжен (Cloudflare/браузер)."
-
-  - id: ind_acled
-    name: "ACLED (события конфликта)"
-    voice: independent
-    method: json
-    basket: event
-    author: "ACLED"
-    auth: acled
-    url: "https://acleddata.com/api/acled/read?_format=json&country=Ukraine&limit=200"   # эндпоинт жив (403 без токена)
-    enabled: false         # РЕШЕНО не брать (Ninja, 2026-06-04): единственный источник, требующий аккаунт/пароль (OAuth password-grant) — лишняя кред-зависимость. Держим систему на бескредных источниках + один одноразовый ключ Wayback. У нас уже 3 независимых голоса.
-    archive: false         # disabled source; do not Wayback unless re-enabled and promoted
-    note: "EULA + атрибуция; редистрибуция ограничена. Auth: OAuth Bearer (логин/пароль → 24ч токен). Не берём ради полной автономности."

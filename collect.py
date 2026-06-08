@@ -3,18 +3,18 @@
 append NEW ones to the ledger. Idempotent — a record already present (same
 record_id) is skipped, so the scheduled job can run as often as you like.
 
-  RSS sources  -> one record per feed item.
-  JSON sources -> one record per run = a snapshot hash of the dataset state.
+Narrow scope by design:
+  Telegram sources -> one record per public post.
+  JSON sources     -> one record per run = a snapshot hash of the dataset state.
 
 We store a content HASH + metadata + (optional) external archive link, never
-the full source text. Wayback archiving and ACLED (token) are optional and
-gated on env vars; without them the run still works on the free, no-auth feeds.
+the full source text. Wayback archiving lives in archive.py and uses the same
+small source set; there are no collect-only feeds.
 """
 from __future__ import annotations
 
 import os
 import sys
-import time
 from datetime import datetime, timezone
 
 import requests
@@ -27,7 +27,6 @@ ROOT = os.path.dirname(os.path.abspath(__file__))
 SOURCES_PATH = os.path.join(ROOT, "sources.yaml")
 LEDGER_PATH = os.path.join(ROOT, "ledger", "log.jsonl")
 
-# A browser-like UA is required by some sources (WarSpotting returns 520 otherwise).
 UA = "Mozilla/5.0 (zerkalo-svodok/0.1; transparency archive)"
 TIMEOUT = 30
 
@@ -44,49 +43,9 @@ def today() -> str:
 # slow Wayback save never blocks collection or locks a record.
 
 
-def collect_rss(src: dict, existing: set[str]) -> list[dict]:
-    import feedparser  # imported lazily so non-RSS runs don't need it
-
-    feed = feedparser.parse(src["url"])
-    out = []
-    for e in feed.entries:
-        title = (e.get("title") or "").strip()
-        link = e.get("link") or src["url"]
-        summary = e.get("summary") or ""
-        published_at = None
-        event_date = today()
-        if e.get("published_parsed"):
-            published_at = time.strftime("%Y-%m-%dT%H:%M:%SZ", e.published_parsed)
-            event_date = time.strftime("%Y-%m-%d", e.published_parsed)
-        rec = make_record(
-            source_id=src["id"],
-            voice=src["voice"],
-            source_name=src["name"],
-            basket=src.get("basket", "narrative"),
-            author=src.get("author", src["name"]),
-            title=title[:300],
-            url=link,
-            published_at=published_at,
-            event_date=event_date,
-            content_hash=content_hash((title + "\n" + summary).encode("utf-8")),
-        )
-        if record_id(rec) in existing:
-            continue
-        out.append(rec)
-    return out
-
-
 def collect_json(src: dict, existing: set[str]) -> list[dict]:
-    url = src["url"]
-    if src.get("auth") == "acled":
-        key, email = os.environ.get("ACLED_KEY"), os.environ.get("ACLED_EMAIL")
-        if not (key and email):
-            print(f"  skip {src['id']}: ACLED_KEY/ACLED_EMAIL not set")
-            return []
-        sep = "&" if "?" in url else "?"
-        url = f"{url}{sep}key={key}&email={email}"
     try:
-        r = requests.get(url, headers={"User-Agent": UA}, timeout=TIMEOUT)
+        r = requests.get(src["url"], headers={"User-Agent": UA}, timeout=TIMEOUT)
         r.raise_for_status()
     except requests.RequestException as ex:
         print(f"  skip {src['id']}: fetch failed ({ex})")
@@ -146,14 +105,12 @@ def main() -> int:
         method = src.get("method")
         print(f"-> {src['id']} ({method})")
         try:
-            if method == "rss":
-                recs = collect_rss(src, existing)
-            elif method == "json":
+            if method == "json":
                 recs = collect_json(src, existing)
             elif method == "telegram":
                 recs = collect_telegram(src, existing)
             else:
-                print(f"  skip: unknown method {method}")
+                print(f"  skip: unknown or unsupported method {method}")
                 continue
         except Exception as ex:  # fail-loud per source, never abort the whole run
             print(f"  ERROR {src['id']}: {ex}")

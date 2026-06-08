@@ -1,5 +1,4 @@
 requests>=2.31
-feedparser>=6.0
 PyYAML>=6.0
 cryptography>=42.0
 opentimestamps-client>=0.7   # provides the `ots` CLI — anchors the head in Bitcoin (free, no account)
